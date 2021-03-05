@@ -1,0 +1,97 @@
+/**
+* -------------------------------------------------------------------------------------------------------------------- *
+* -- Box -- *
+* -------------------------------------------------------------------------------------------------------------------- *
+*/
+
+
+// Margin utilities
+
+.box-mg-t { margin-top: $co-box-y; }
+.box-mg-r { margin-right: $co-box-x; }
+.box-mg-b { margin-bottom: $co-box-y; }
+.box-mg-l { margin-left: $co-box-x; }
+
+.box-mg-v {
+  @extend .box-mg-b;
+  @extend .box-mg-t;
+}
+
+.box-mg-h {
+  @extend .box-mg-l;
+  @extend .box-mg-r;
+}
+
+.box-mg {
+  @extend .box-mg-v;
+  @extend .box-mg-h;
+}
+
+.box-mg-flush { margin: 0; }
+
+
+// Padding utilities
+
+.box-pd-t { padding-top: $co-box-y; }
+.box-pd-r { padding-right: $co-box-x; }
+.box-pd-b { padding-bottom: $co-box-y; }
+.box-pd-l { padding-left: $co-box-x; }
+
+.box-pd-v {
+  @extend .box-pd-b;
+  @extend .box-pd-t;
+}
+
+.box-pd-h {
+  @extend .box-pd-l;
+  @extend .box-pd-r;
+}
+
+.box-pd {
+  @extend .box-pd-v;
+  @extend .box-pd-h;
+}
+
+.box-pd-flush { padding: 0; }
+
+
+// General utilites
+
+.box { @extend .box-pd; }
+.box-radius { border-radius: $co-box-radius; }
+
+.block { display: block; }
+.inline-block { display: inline-block; }
+
+
+// Border utilities
+
+.box-border-t { border-top: 1px solid mix('white', 'border-color'); }
+.box-border-r { border-right: 1px solid mix('white', 'border-color'); }
+.box-border-b { border-bottom: 1px solid mix('white', 'border-color'); }
+.box-border-l { border-left: 1px solid mix('white', 'border-color'); }
+
+.box-border-v {
+  @extend .box-border-b;
+  @extend .box-border-t;
+}
+
+.box-border-h {
+  @extend .box-border-l;
+  @extend .box-border-r;
+}
+
+
+// Box colors
+
+.light-box {
+  @extend .box;
+  @include colorMix('gray');
+  border-radius: $co-box-radius;
+}
+
+.dark-box {
+  @extend .box;
+  @include colorMix('black');
+  border-radius: $co-box-radius;
+}

@@ -16,9 +16,7 @@
 
   & + & { margin-top: $co-box-x; }
 
-  &.is--inline-block {
-    display: inline-block;
-  }
+  &.is--inline-block { display: inline-block; }
 
   &.is--bordered {
     & > li {

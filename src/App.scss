@@ -11,3 +11,31 @@
 .app__content {
   padding: $co-app-topnav-height 0 0 0;
 }
+
+.app-layout {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+
+.app-layout__right,
+.app-layout__left {
+  height: calc(100vh - #{$co-app-topnav-height});
+  overflow-y: scroll;
+}
+
+.app-layout__left {
+  width: $co-app-layout-col-left-width;
+  border-right: 1px solid mix('white', 'border-color');
+}
+
+.app-layout__main {
+  flex-grow: 2;
+}
+
+.app-layout__right {
+  width: $co-app-layout-col-right-width;
+  border-left: 1px solid mix('white', 'border-color');
+}

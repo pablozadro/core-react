@@ -6,11 +6,14 @@
 @import 'sass/base/typography';
 
 // Layout
-@import 'sass/layout/box';
 @import 'sass/layout/flex';
 @import 'sass/layout/grid';
 @import 'sass/layout/sections';
-@import 'sass/layout/lists';
+
+// Elements
+@import 'sass/elements/box';
+@import 'sass/elements/tables';
+@import 'sass/elements/lists';
 
 // Vendors
 @import 'sass/vendors/material-icons';

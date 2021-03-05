@@ -16,6 +16,10 @@ section {
 
   & > header {
     margin: 0 0 $co-box-x 0;
+
+    &.is--bordered {
+      border-bottom: 2px solid mix('white', 'border-color');
+    }
   }
 }
 
@@ -44,6 +48,9 @@ article {
 
   & > header {
     margin: 0 0 $co-box-x 0;
-    border-bottom: 1px solid mix('gray', 'border-color');
+  
+    &.is--bordered {
+      border-bottom: 1px solid mix('white', 'border-color');
+    }
   }
 }

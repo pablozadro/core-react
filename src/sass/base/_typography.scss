@@ -22,7 +22,7 @@ p {
 
 .txt {
   padding: 0;
-  margin: 0 0 1rem 0;
+  margin: 0 0 $co-box-x 0;
 }
 
 
@@ -48,18 +48,22 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-// Colors  utilities
+// Colors & Background utilities
 @each $name, $value in $co-colors {
   .#{$name} {
     color: $value;
+  }
+
+  .#{$name}-bkg {
+    background-color: $value;
   }
 }
 
 
 // Links
 .link {
-  font-family:           $co-type-sans;
-  text-decoration:       none;
+  font-family: $co-type-sans;
+  text-decoration: none;
   
   &:hover {
     text-decoration: underline;
@@ -103,8 +107,7 @@ abbr, .abbr {
 }
 
 time, .time {
-  font-family: $co-type-mono;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
 }
 
 small, .small {
