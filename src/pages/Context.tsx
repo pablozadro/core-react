@@ -1,12 +1,18 @@
-import React from 'react';
+import LocaleContext from '../contexts/Locale';
 import Section from '../elements/section/Section';
 
 export default function Context () {
   return (
-    <div className="container">
-      <Section title="State Context management">
-
-      </Section>
-    </div>
+    <LocaleContext.Consumer>
+    {localeContext => {
+      return (
+        <div className="container">
+          <Section title="State Context management">
+            <p>Current Locale: { localeContext.locale }</p>
+          </Section>
+        </div>
+      )
+    }}
+    </LocaleContext.Consumer>
   );
 };

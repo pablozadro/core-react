@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from "react-router-dom";
 import Section from '../elements/section/Section';
 import Article from '../elements/article/Article';
@@ -10,7 +9,7 @@ export default function State () {
         <Article title="Overview">
           <ul className="list">
             <li>
-              <Link className="link black" to="/state/context">Context</Link>
+              <Link className="link primary" to="/state/context">Context</Link>
             </li>
           </ul>
         </Article>

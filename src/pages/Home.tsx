@@ -1,4 +1,3 @@
-import React from 'react';
 import Section from '../elements/section/Section';
 import Brand from '../elements/brand/Brand';
 
