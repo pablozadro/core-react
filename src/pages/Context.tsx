@@ -7,7 +7,7 @@ export default function Context () {
     {localeContext => {
       return (
         <div className="container">
-          <Section title="State Context management">
+          <Section title="Context API">
             <p>Current Locale: { localeContext.locale }</p>
           </Section>
         </div>

@@ -11,6 +11,7 @@ import LocaleContext from './contexts/Locale';
 import Home from './pages/Home';
 import State from './pages/State';
 import Context from './pages/Context';
+import ReduxAsync from './pages/ReduxAsync';
 
 import Topnav from './components/topnav/Topnav';
 import Button from './elements/button/Button';
@@ -34,7 +35,6 @@ class App extends React.Component<IAppState> {
   }
 
   render() {
-    console.log(this);
     return (
       <LocaleContext.Provider value={{
           locale: this.state.locale
@@ -54,6 +54,7 @@ class App extends React.Component<IAppState> {
               <Switch>
                 <Route exact path="/state" component={ State } />,
                 <Route exact path="/state/context" component={ Context } />
+                <Route exact path="/state/redux-async" component={ ReduxAsync } />
                 <Route exact path="/" component={ Home } />
               </Switch>
             </div>

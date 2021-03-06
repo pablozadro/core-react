@@ -11,6 +11,9 @@ export default function State () {
             <li>
               <Link className="link primary" to="/state/context">Context</Link>
             </li>
+            <li>
+              <Link className="link primary" to="/state/redux-async">Redux Async</Link>
+            </li>
           </ul>
         </Article>
       </Section>
