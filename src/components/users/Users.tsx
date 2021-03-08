@@ -1,46 +1,39 @@
 import { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { 
-  fetchUsersOk,
-  fetchUsersErr,
-  fetchUsersFetching 
-} from './actions';
+import Article from '../../elements/article/Article';
+import Loading from '../../elements/loading/Loading';
+import Message from '../../elements/message/Message';
 
-interface IUsersProps { 
-  fetchUsersFetching: Function;
-  fetchUsersOk: Function;
-  fetchUsersErr: Function;
-}
-
-const Users = function({ fetchUsersFetching, fetchUsersOk, fetchUsersErr }: IUsersProps) {
+export default function Users() {
+  const [ isFetching, setIsFetching ] = useState(false);
+  const [ err, setErr ] = useState('');
   const [ users, setUsers ] = useState([]);
 
   useEffect(() => {
-    console.log('- use effect -');
-    // fetchUsersFetching();
-    fetch('http://localhost:9000/api/v1/users')
-      .then(res => res.json())
-      .then(data => {
-        setUsers(data.payload.users);
-      }).catch(e => {
-        console.log('- Error -', e.message);
-      });
-  }, [ users ]);
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    setIsFetching(true);
+    try {
+      const res = await fetch('http://localhost:9000/api/v1/users?delay=1500');
+      const data = await res.json();
+      setUsers(data.payload.users);
+      setErr('');
+    } catch (e) {
+      setErr(e.message);
+    }
+    setIsFetching(false)
+  };
 
   return (
-    <article>
-      <p>Users component</p>
-      <p>Users: { users.length }</p>
-    </article>
+    <Article title="Users">
+      { isFetching && <Loading /> }
+      { err && <Message theme="error" txt={ err } /> }
+      <ul className="list">
+      { users && users.map((user: any, i: number) => {
+        return <li key={i}>{i}: { user.email }</li>
+      })}
+      </ul>
+    </Article>
   );
 };
-
-// const mapStateToProps = (state) => {
-//   return {
-//     counter: state.counter,
-//   }
-// }
-
-const mapDispatchToProps = { fetchUsersErr, fetchUsersFetching, fetchUsersOk }
-
-export default connect(null, mapDispatchToProps)(Users);
