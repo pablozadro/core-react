@@ -1,5 +1,3 @@
-import React from 'react';
-
 type ArticleProps = {
   title:string; 
   children?: any;

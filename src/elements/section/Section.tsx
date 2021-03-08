@@ -1,5 +1,3 @@
-import React from 'react';
-
 type SectionProps = {
   title:string; 
   children?: any;

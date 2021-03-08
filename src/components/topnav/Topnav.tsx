@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import LocaleContext from '../../contexts/Locale';
 import Button from '../../elements/button/Button';
 import './Topnav.scss';
 
-interface TopnavProps { 
+interface ITopnavProps { 
   changeLocale: Function;
   primaryNav: Array<JSX.Element>;
   secondaryNav: Array<JSX.Element>; 
 }
 
-export default function Topnav ({ changeLocale, primaryNav, secondaryNav }: TopnavProps) {
+export default function Topnav ({ changeLocale, primaryNav, secondaryNav }: ITopnavProps) {
   const [isActive, setActive] = useState(false);
 
   return (
@@ -44,9 +43,4 @@ export default function Topnav ({ changeLocale, primaryNav, secondaryNav }: Topn
     }}
     </LocaleContext.Consumer>
   );
-};
-
-Topnav.propTypes = {
-  primaryNav: PropTypes.array.isRequired,
-  secondaryNav: PropTypes.array.isRequired
 };

@@ -6,15 +6,15 @@ import {
   Link
 } from "react-router-dom";
 
-import LocaleContext from './contexts/Locale';
+import LocaleContext from '../contexts/Locale';
 
-import Home from './pages/Home';
-import State from './pages/State';
-import Context from './pages/Context';
-import ReduxAsync from './pages/ReduxAsync';
+import Home from '../pages/Home';
+import State from '../pages/State';
+import Context from '../pages/Context';
+import ReduxAsync from '../pages/ReduxAsync';
 
-import Topnav from './components/topnav/Topnav';
-import Button from './elements/button/Button';
+import Topnav from '../components/topnav/Topnav';
+import Button from '../elements/button/Button';
 
 import './App.scss';
 
