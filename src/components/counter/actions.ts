@@ -1,18 +1,20 @@
 import { COUNTER_INCREMENT, COUNTER_DECREMENT } from './types';
 
-export interface IAction {
+export interface ICounterAction {
   type: string;
-  payload: { [key: string]: any }
+  payload: {
+    amount: number;
+  }
 }
 
-export function incrementCounter(amount: number): IAction {
+export function incrementCounter(amount: number): ICounterAction {
   return {
     type: COUNTER_INCREMENT,
     payload: { amount: amount }
   }
 }
 
-export function decrementCounter(amount: number): IAction {
+export function decrementCounter(amount: number): ICounterAction {
   return {
     type: COUNTER_DECREMENT,
     payload: { amount: amount }

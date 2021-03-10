@@ -14,6 +14,9 @@ export default function State () {
             <li>
               <Link className="link primary" to="/state/react-redux-sync">React Redux Sync</Link>
             </li>
+            <li>
+              <Link className="link primary" to="/state/react-redux-async">React Redux Async</Link>
+            </li>
           </ul>
         </Article>
       </Section>

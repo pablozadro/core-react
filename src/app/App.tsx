@@ -12,6 +12,7 @@ import Home from '../pages/Home';
 import State from '../pages/State';
 import ReactContextAPI from '../pages/ReactContextAPI';
 import ReactReduxSync from '../pages/ReactReduxSync';
+import ReactReduxAsync from '../pages/ReactReduxAsync';
 
 import Topnav from '../components/topnav/Topnav';
 import Button from '../elements/button/Button';
@@ -55,6 +56,7 @@ class App extends React.Component<IAppState> {
                 <Route exact path="/state" component={ State } />,
                 <Route exact path="/state/react-context-api" component={ ReactContextAPI } />
                 <Route exact path="/state/react-redux-sync" component={ ReactReduxSync } />
+                <Route exact path="/state/react-redux-async" component={ ReactReduxAsync } />
                 <Route exact path="/" component={ Home } />
               </Switch>
             </div>

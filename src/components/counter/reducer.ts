@@ -1,15 +1,15 @@
 import { COUNTER_INCREMENT, COUNTER_DECREMENT } from './types';
-import { IAction } from './actions';
+import { ICounterAction } from './actions';
 
-interface IState {
+interface ICounterState {
   value: number;
 }
 
-const initialState:IState = {
+const initialState:ICounterState = {
   value: 0
 };
 
-export default function counterReducer(state = initialState, action: IAction): IState {
+export default function counterReducer(state = initialState, action: ICounterAction): ICounterState {
   switch(action.type) {
     case COUNTER_INCREMENT:
       return {

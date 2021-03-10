@@ -2,7 +2,7 @@ import LocaleContext from '../contexts/Locale';
 import Button from '../elements/button/Button';
 import Section from '../elements/section/Section';
 
-export default function Context () {
+export default function ReactContextAPI () {
   return (
     <LocaleContext.Consumer>
     {localeContext => {
