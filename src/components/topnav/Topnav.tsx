@@ -4,12 +4,11 @@ import Button from '../../elements/button/Button';
 import './Topnav.scss';
 
 interface ITopnavProps { 
-  changeLocale: Function;
   primaryNav: Array<JSX.Element>;
   secondaryNav: Array<JSX.Element>; 
 }
 
-export default function Topnav ({ changeLocale, primaryNav, secondaryNav }: ITopnavProps) {
+export default function Topnav ({ primaryNav, secondaryNav }: ITopnavProps) {
   const [isActive, setActive] = useState(false);
 
   return (
@@ -32,7 +31,7 @@ export default function Topnav ({ changeLocale, primaryNav, secondaryNav }: ITop
                   <li key={i}>{ link }</li>
                 )
               })}
-              <li><Button theme="white" txt={localeContext.locale} onClick={ changeLocale }/></li>
+              <li><Button theme="white" txt={localeContext.locale} onClick={ localeContext.toggleLocale }/></li>
             </ul>
           </div>
           <button className="topnav__toggler" onClick={() => { setActive(!isActive) }}>

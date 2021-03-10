@@ -10,8 +10,8 @@ import LocaleContext from '../contexts/Locale';
 
 import Home from '../pages/Home';
 import State from '../pages/State';
-import Context from '../pages/Context';
-import ReduxAsync from '../pages/ReduxAsync';
+import ReactContextAPI from '../pages/ReactContextAPI';
+import ReactReduxSync from '../pages/ReactReduxSync';
 
 import Topnav from '../components/topnav/Topnav';
 import Button from '../elements/button/Button';
@@ -37,12 +37,12 @@ class App extends React.Component<IAppState> {
   render() {
     return (
       <LocaleContext.Provider value={{
-          locale: this.state.locale
+          locale: this.state.locale,
+          toggleLocale: this.toggleLocale
         }}>
         <Router>
           <div className="app">
             <Topnav 
-              changeLocale={this.toggleLocale}
               primaryNav={[
                 <Link className="link black" to="/">Home</Link>,
                 <Link className="link black" to="/state">State</Link>
@@ -53,8 +53,8 @@ class App extends React.Component<IAppState> {
             <div className="app__content">
               <Switch>
                 <Route exact path="/state" component={ State } />,
-                <Route exact path="/state/context" component={ Context } />
-                <Route exact path="/state/redux-async" component={ ReduxAsync } />
+                <Route exact path="/state/react-context-api" component={ ReactContextAPI } />
+                <Route exact path="/state/react-redux-sync" component={ ReactReduxSync } />
                 <Route exact path="/" component={ Home } />
               </Switch>
             </div>
