@@ -1,39 +1,50 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import APIService from '../../services/api-service';
 import Article from '../../elements/article/Article';
 import Loading from '../../elements/loading/Loading';
 import Message from '../../elements/message/Message';
+import UsersList from './UsersList';
+import { fetchUsersInprogress, fetchUsersOk, fetchUsersError } from './actions';
+import { IUsersState } from './reducer';
 
-export default function Users() {
-  const [ isFetching, setIsFetching ] = useState(false);
-  const [ err, setErr ] = useState('');
-  const [ users, setUsers ] = useState([]);
+interface IUsersProps {
+  fetchUsersInprogress: Function;
+  fetchUsersOk: Function;
+  fetchUsersError: Function;
+  users: IUsersState
+}
+
+function Users({fetchUsersInprogress, fetchUsersOk, fetchUsersError, users}: IUsersProps) {
 
   useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  const fetchUsers = async () => {
-    setIsFetching(true);
-    try {
-      const res = await fetch('http://localhost:9000/api/v1/users?delay=1500');
-      const data = await res.json();
-      setUsers(data.payload.users);
-      setErr('');
-    } catch (e) {
-      setErr(e.message);
-    }
-    setIsFetching(false)
-  };
+    fetchUsersInprogress();
+    APIService.getUsers().then((users: any) => {
+      fetchUsersOk(users);
+    }).catch((e: any) => {
+      fetchUsersError(e.message);
+    });
+  }, [fetchUsersInprogress, fetchUsersOk, fetchUsersError]);
 
   return (
     <Article title="Users">
-      { isFetching && <Loading /> }
-      { err && <Message theme="error" txt={ err } /> }
-      <ul className="list">
-      { users && users.map((user: any, i: number) => {
-        return <li key={i}>{i}: { user.email }</li>
-      })}
-      </ul>
+      { users.isFetching && <Loading /> }
+      { users.error && <Message theme="error" txt={ users.error } /> } 
+      { users.items.length > 0 && <UsersList users={ users.items }/>}
     </Article>
   );
 };
+
+const mapStateToProps = (state: any /*, ownProps*/) => {
+  return {
+    users: state.users,
+  }
+}
+
+const mapDispatchToProps = {   
+  fetchUsersInprogress,
+  fetchUsersOk,
+  fetchUsersError
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users);
