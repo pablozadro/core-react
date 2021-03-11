@@ -9,14 +9,21 @@
   margin: 0;
   padding: 0;
 
+  & > li > ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  & > li > ul > li {
+    margin-bottom: 0;
+  }
+
   & > li {
     margin: ($co-box-yy / 2) 0;
     padding: ($co-box-yy / 2) $co-box-yy ($co-box-yy / 2) 0;
   }
 
   & + & { margin-top: $co-box-x; }
-
-  &.is--inline-block { display: inline-block; }
 
   &.is--bordered {
     & > li {

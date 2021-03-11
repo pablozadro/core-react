@@ -5,10 +5,10 @@ import {
 } from './types';
 import { IUsersAction } from './actions';
 
-interface IUsersState {
-  items?: Array<{}>;
-  isFetching?: boolean;
-  error?: string;
+export interface IUsersState {
+  items: Array<{[key: string]: any}>;
+  isFetching: boolean;
+  error: string;
 }
 
 const initialState: IUsersState = {
